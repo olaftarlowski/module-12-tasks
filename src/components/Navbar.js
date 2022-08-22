@@ -1,14 +1,23 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { NavbarWrapper } from "../styled-components/styled-components";
 
 const Navbar = () => {
+  let activeClassName = "activeLink";
   return (
-    <div>
-      <h1>navbar</h1>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-      </nav>
-    </div>
+    <NavbarWrapper>
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? activeClassName : undefined)}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/users"
+        className={({ isActive }) => (isActive ? activeClassName : undefined)}
+      >
+        Users
+      </NavLink>
+    </NavbarWrapper>
   );
 };
 

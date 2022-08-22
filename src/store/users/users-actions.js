@@ -18,6 +18,7 @@ export const fetchUsersData = (count = 10) => {
         usersActions.replaceData({
           items: userData.data.results || [],
           isLoading: false,
+          isError: false,
         })
       );
     } catch (error) {
@@ -25,8 +26,8 @@ export const fetchUsersData = (count = 10) => {
       dispatch(
         usersActions.replaceData({
           items: [],
-          isError: true,
           isLoading: false,
+          isError: true,
         })
       );
     }
